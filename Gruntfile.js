@@ -14,8 +14,8 @@ module.exports = function(grunt) {
         }
       },
       emberTemplates: {
-        files: 'js/**/*.hbs',
-        tasks: ['emberTemplates', 'livereload']
+        files: 'templates/**/*.hbs',
+        tasks: ['emberTemplates']
       }
     },
     emberTemplates : {

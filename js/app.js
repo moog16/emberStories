@@ -1,6 +1,9 @@
 App = Ember.Application.create();
  
 App.Router.map(function() {
+  this.resource('index', {path: '/'}, function() {
+    this.resource('story', {path: '/stories/:story_id'});
+  })
   this.resource('newstory', {path: 'story/new'});
 });
 
@@ -21,6 +24,13 @@ App.IndexRoute = Ember.Route.extend({
   model : function(){
     return this.get('store').findAll('story');
   }
+});
+
+App.StoryRoute = Ember.Route.extend({
+    model : function(params){
+        var store = this.get('store');
+        return store.find('story',params.story_id);
+    }
 });
 
 App.IndexController = Ember.ArrayController.extend({
@@ -50,4 +60,8 @@ App.NewstoryController = Ember.ObjectController.extend({
       this.transitionToRoute('index');
     }
   }
+});
+
+Ember.Handlebars.helper('format-date', function(date){
+    return moment(date).fromNow();
 });

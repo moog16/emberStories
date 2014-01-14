@@ -9,61 +9,6 @@
   <script src="http://localhost:9090/livereload.js"></script>
 </head>
 <body>
-   <script type="text/x-handlebars" id="index">
-    <div class="row">
-      <div class="col-md-4">
-        <table class='table'>
-          <thead>
-            <tr><th>Recent Stories</th></tr>
-          </thead>
-          {{#each controller}}
-            <tr><td>
-           {{#link-to 'story' this}}
-              {{title}}
-            {{/link-to}}
-            </td></tr>
-          {{/each}}
-        </table>
-      </div>
-      <div class="col-md-8">
-        {{outlet}}
-      </div>
-    </div>
-  </script>
-
-   <script type="text/x-handlebars" id="story">
-    <h1>{{title}}</h1>
-    <h2> by {{fullname}} <small class="muted">{{format-date submittedOn}}</small></h2>
-    {{#each tagnames}}
- 
-        <span class="label label-primary">{{this}}</span>
- 
-      {{/each}}
-    <hr>
-    <p class="lead">
-      {{excerpt}}
-    </p>
- 
-  </script>
-
-  <script type="text/x-handlebars">
-    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">GetBookMarks</a>
-        </div>
-        <ul class="nav navbar-nav pull-right">
-            <li>{{#link-to 'newstory'}}<span class="glyphicon glyphicon-plus"></span> Submit Story{{/link-to}}</li>
-        </ul>
-      </div>
-    </nav>
-
-  <div id="main" class="container">
-    {{outlet}}
-  </div>
-  </script>
-
-
 
   <script src="js/libs/jquery-1.9.1.js"></script>
   <script src="js/libs/handlebars-1.0.0.js"></script>

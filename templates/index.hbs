@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-4">
+    <table class='table'>
+      <thead>
+        <tr><th>Recent Stories</th></tr>
+      </thead>
+      {{#each controller}}
+        <tr><td>
+       {{#link-to 'story' this}}
+          {{title}}
+        {{/link-to}}
+        </td></tr>
+      {{/each}}
+    </table>
+  </div>
+  <div class="col-md-8">
+    {{outlet}}
+  </div>
+</div>

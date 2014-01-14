@@ -14,22 +14,23 @@ module.exports = function(grunt) {
         }
       },
       emberTemplates: {
-        files: 'app/scripts/**/*.handlebars',
+        files: 'js/**/*.hbs',
         tasks: ['emberTemplates', 'livereload']
-      },
+      }
     },
-    emberTemplates: {
+    emberTemplates : {
       compile: {
         options: {
-          amd: true,
-          templateBasePath: /path\/to\//
+          templateName: function(sourceFile) {
+            return sourceFile.replace(/templates\//, '');
+          }
         },
         files: {
-          "path/to/result.js": "path/to/source.handlebars",
-          "path/to/another.js": ["path/to/sources/*.handlebars", "path/to/more/*.handlebars"]
+          'js/handlebarTemplates.js': ['templates/**/*.hbs']
         }
       }
     }
+
 
   });
  

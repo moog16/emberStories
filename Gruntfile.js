@@ -1,7 +1,6 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
-
     watch : {
       scripts : {
         files : [
@@ -30,12 +29,11 @@ module.exports = function(grunt) {
         }
       }
     }
-
-
   });
  
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-ember-templates');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
  
   grunt.registerTask('default', ['watch']);  
 };

@@ -1,10 +1,21 @@
-<h1>{{title}}</h1>
-<h2> by {{fullname}} <small class="muted">{{format-date submittedOn}}</small></h2>
-<button {{action 'editStory'}} class="btn btn-danger">Edit</button>
-  {{#each tagnames}}
-    <span class="label label-primary">{{this}}</span>
-  {{/each}}
-<hr>
-<p class="lead">
-  {{excerpt}}
-</p>
+{{#if isEditing}}
+  <h1>{{input type="text" value=title placeholder='title'}}</h1>
+  <h2> by {{input type='text' value=fullname placeholder='full name'}} <small class='muted'>{{format-date submittedOn}}</small></h2>
+  <hr>
+  <p>
+    {{textarea value=excerpt placeholder='write down your thoughts here...' cols='80' rows='8'}}
+  </p>
+  <button class='btn btn-warning' {{action 'saveStory'}}>Save</button>
+  <button class='btn btn-danger' {{action 'deleteStory'}}>Delete</button>
+{{else}}
+  <h1>{{title}}</h1>
+  <h2> by {{fullname}} <small class="muted">{{format-date submittedOn}}</small></h2>
+  <button class="btn btn-danger" {{action 'editStory'}}>Edit</button>
+    {{#each tagnames}}
+      <span class="label label-primary">{{this}}</span>
+    {{/each}}
+  <hr>
+  <p class="lead">
+    {{excerpt}}
+  </p>
+{{/if}}

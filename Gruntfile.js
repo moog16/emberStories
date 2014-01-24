@@ -4,7 +4,8 @@ module.exports = function(grunt) {
     watch : {
       scripts : {
         files : [
-                  'js/app.js',
+                  'scripts/app.js',
+                  'scripts/**/*.js',
                   'css/*.css',
                   'index.html'
                 ],
@@ -25,7 +26,7 @@ module.exports = function(grunt) {
           }
         },
         files: {
-          'js/handlebarTemplates.js': ['templates/**/*.hbs']
+          'scripts/handlebarTemplates.js': ['templates/**/*.hbs']
         }
       }
     }
